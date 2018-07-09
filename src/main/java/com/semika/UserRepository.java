@@ -3,16 +3,14 @@
  */
 package com.semika;
 
-import org.springframework.stereotype.Repository;
+
+import org.springframework.data.repository.CrudRepository;
 
 /**
  * @author semika
  *
  */
-@Repository
-public class UserRepository {
+public interface UserRepository extends CrudRepository<User, Long> {
 
-	public void sayHello() {
-		System.out.println("Hello");  
-	}
+	public User findByUserName(String userName);
 }
