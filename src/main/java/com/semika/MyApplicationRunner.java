@@ -1,4 +1,4 @@
-package com;
+package com.semika;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

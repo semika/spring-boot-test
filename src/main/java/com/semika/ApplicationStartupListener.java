@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com;
+package com.semika;
 
 import org.springframework.boot.context.event.ApplicationStartingEvent;
 import org.springframework.context.ApplicationListener;

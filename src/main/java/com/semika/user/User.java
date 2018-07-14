@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.semika;
+package com.semika.user;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +16,7 @@ import javax.persistence.Table;
  */
 @Entity(name="User") 
 @Table(name="user") 
-public class User {
+public class User { 
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.semika;
+package com.semika.user;
 
 import java.util.ArrayList;
 import java.util.Date;

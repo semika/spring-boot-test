@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.semika;
+package com.semika.user;
 
 
 import org.springframework.data.repository.CrudRepository;
