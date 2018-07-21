@@ -3,24 +3,13 @@
  */
 package com.semika.user;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 /**
- * @author semika
+ * @author semikasiriwardana
  *
  */
-@Service
-public class UserService {
+public interface UserService {
 
-	@Autowired
-	private UserRepository userRepository; 
+	public Iterable<User>  findAll();
 	
-	public Iterable<User>  findAll() {
-		return  userRepository.findAll();
-	}
-	
-	public User findByUserName(String userName) {
-		return userRepository.findByUserName(userName); 
-	}
+	public User findByUserName(String userName);  
 }

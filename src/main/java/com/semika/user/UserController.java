@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 	
 	@Autowired
-	private UserService userService;
+	private UserService userService; 
 
 	@RequestMapping("/") 
 	public String hello() {
@@ -29,7 +29,7 @@ public class UserController {
 		
 		userIte.forEach(userList :: add);
 		
-		User semikaUser = userService.findByUserName("semika");
+		User semikaUser = userService.findByUserName("semika"); 
 		
 		return "Hello World, This is Semika" + new Date().toString(); 
 	}
