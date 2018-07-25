@@ -12,4 +12,7 @@ public interface UserService {
 	public Iterable<User>  findAll();
 	
 	public User findByUserName(String userName);  
+	
+	public User findById(Long id);
+	
 }

@@ -4,10 +4,10 @@
 package com.semika.user;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,21 +16,27 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
+@RequestMapping("/users")
 public class UserController {
 	
 	@Autowired
 	private UserService userService; 
 
-	@RequestMapping("/") 
-	public String hello() {
+	@RequestMapping("/users") 
+	public Iterable<User> findAll() {
+		
 		Iterable<User> userIte = userService.findAll();
 		
 		List<User> userList = new ArrayList<User>(); 
 		
 		userIte.forEach(userList :: add);
 		
-		User semikaUser = userService.findByUserName("semika"); 
-		
-		return "Hello World, This is Semika" + new Date().toString(); 
+		return userIte;
 	}
+	
+	@RequestMapping("/{id}")
+	public User findById(@PathVariable Long id) {
+		return userService.findById(id);
+	}
+	
 }
