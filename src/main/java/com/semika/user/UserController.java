@@ -7,8 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -21,6 +23,9 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService; 
+	
+	@Autowired
+	private KafkaTemplate kafkaTemplate;
 
 	@RequestMapping("/users") 
 	public Iterable<User> findAll() {
@@ -31,12 +36,14 @@ public class UserController {
 		
 		userIte.forEach(userList :: add);
 		
-		return userIte;
+		return userIte; 
 	}
 	
 	@RequestMapping("/{id}")
-	public User findById(@PathVariable Long id) {
+	public User findById(@PathVariable(value="id") Long id, @RequestParam String msg) {
+		kafkaTemplate.send("test", msg); 
 		return userService.findById(id);
 	}
+	
 	
 }
